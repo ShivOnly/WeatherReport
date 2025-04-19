@@ -1,0 +1,253 @@
+:root {
+  --bg-light: #eccdf8;
+  --bg-dark: #b7cff3;
+  --sidebar-light: #bbdefb;
+  --sidebar-dark: #ae9be9;
+  --topbar-light: #eec7ee;
+  --topbar-dark: #eabae2;
+  --chat-light: #ffffff;
+  --chat-dark: #5f84f5;
+  --bot-msg-light: #c8e6c9;
+  --bot-msg-dark: #f5c3f9;
+  --text-light: #e798f0;
+  --text-dark: #f5f5f5;
+  --btn-hover-light: #ecc5e4;
+  --btn-hover-dark: #e598e0;
+}
+
+/* ✅ GLOBAL RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+/* ===================== SIDEBAR ===================== */
+.side-ribbon {
+  width: 250px;
+  background-color: var(--sidebar-light);
+  color: var(--text-light);
+  height: 100vh;
+  padding-top: 30px;
+  position: fixed;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  z-index: 9;
+}
+
+.side-ribbon:hover {
+  width: 270px;
+}
+
+.side-ribbon .list-group-item {
+  background-color: transparent;
+  border: none;
+  color: var(--text-light);
+  font-weight: bold;
+  padding: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.side-ribbon .list-group-item:hover {
+  background-color: var(--topbar-light);
+  color: #fff;
+}
+
+/* ===================== TOP RIBBON ===================== */
+.top-ribbon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--topbar-light);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-ribbon .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.top-ribbon .user-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* ===================== CHAT CONTAINER ===================== */
+.chat-container {
+  margin-left: 250px;
+  margin-top: 80px;
+  padding: 20px;
+  background-color: var(--chat-light);
+  box-shadow: 0px 4px 20px rgba(218, 69, 235, 0.1);
+  border-radius: 15px;
+  height: 90vh;
+  overflow-y: auto;
+  transition: background-color 0.3s ease;
+}
+
+.chat-box {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 10px;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.user-message, .bot-message {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+  background-color: var(--topbar-light);
+  color: white;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: var(--bot-msg-light);
+  color: var(--text-light);
+}
+
+/* ===================== BUTTON STYLES ===================== */
+.weather-btn, #send-btn {
+  background-color: var(--topbar-light);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.weather-btn:hover, #send-btn:hover {
+  background-color: var(--btn-hover-light);
+}
+
+.weather-btn:active, #send-btn:active {
+  background-color: var(--btn-hover-dark);
+}
+
+/* ===================== INPUT STYLES ===================== */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.input-group input {
+  width: 85%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #e1e1e1;
+  margin-right: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================== ANIMATIONS ===================== */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== RESPONSIVE STYLES ===================== */
+@media (max-width: 768px) {
+  .side-ribbon {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 20;
+  }
+
+  .top-ribbon {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    margin-top: 60px;
+  }
+
+  .chat-container {
+    margin: 160px 10px 10px 10px;
+    height: calc(100vh - 180px);
+    padding: 10px;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .weather-btn, #send-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .chat-box {
+    max-height: 50vh;
+  }
+
+  .user-message, .bot-message {
+    max-width: 100%;
+  }
+
+  .user-info img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .chat-container {
+    margin-left: 250px;
+    margin-top: 80px;
+    height: calc(100vh - 100px);
+  }
+
+  .input-group input {
+    width: 85%;
+  }
+
+  .weather-btn, #send-btn {
+    width: auto;
+  }
+}
